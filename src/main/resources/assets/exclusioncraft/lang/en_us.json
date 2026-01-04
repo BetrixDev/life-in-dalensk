@@ -4,5 +4,6 @@
   "block.exclusioncraft.toolbox": "Toolbox",
   "block.exclusioncraft.med_case": "Med Case",
   "container.exclusioncraft.toolbox": "Toolbox",
-  "container.exclusioncraft.med_case": "Med Case"
+  "container.exclusioncraft.med_case": "Med Case",
+  "currency.exclusioncraft.roubles": "Roubles"
 }
