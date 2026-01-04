@@ -28,8 +28,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import dev.betrix.exclusioncraft.registry.ModBlockEntities;
+import dev.betrix.exclusioncraft.registry.ModBlocks;
 import dev.betrix.exclusioncraft.registry.ModEffects;
 import dev.betrix.exclusioncraft.registry.ModItems;
+import dev.betrix.exclusioncraft.registry.ModMenuTypes;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ExclusionCraft.MODID)
@@ -72,9 +75,12 @@ public class ExclusionCraft {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
-        // Register mod effects and items
+        // Register mod effects, items, blocks, block entities, and menus
         ModEffects.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -102,6 +108,10 @@ public class ExclusionCraft {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) event.accept(ModItems.SPLINT);
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModBlocks.TOOLBOX.get());
+            event.accept(ModBlocks.MED_CASE.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

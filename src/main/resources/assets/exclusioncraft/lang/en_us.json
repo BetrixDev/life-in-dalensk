@@ -1,4 +1,8 @@
 {
   "item.exclusioncraft.splint": "Splint",
-  "effect.exclusioncraft.broken_leg": "Broken Leg"
+  "effect.exclusioncraft.broken_leg": "Broken Leg",
+  "block.exclusioncraft.toolbox": "Toolbox",
+  "block.exclusioncraft.med_case": "Med Case",
+  "container.exclusioncraft.toolbox": "Toolbox",
+  "container.exclusioncraft.med_case": "Med Case"
 }

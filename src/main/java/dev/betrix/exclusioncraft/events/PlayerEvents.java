@@ -87,7 +87,7 @@ public class PlayerEvents {
         }
 
         if (player.hasEffect(ModEffects.BROKEN_LEG.get())) {
-            player.setDeltaMovement(player.getDeltaMovement().multiply(1, 0, 1));
+            player.hurt(player.damageSources().generic(), 1.0f);
         }
     }
 }
