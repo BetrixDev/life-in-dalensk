@@ -28,6 +28,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import dev.betrix.exclusioncraft.registry.ModEffects;
+import dev.betrix.exclusioncraft.registry.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ExclusionCraft.MODID)
@@ -70,6 +72,10 @@ public class ExclusionCraft {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
+        // Register mod effects and items
+        ModEffects.register(modEventBus);
+        ModItems.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -95,6 +101,7 @@ public class ExclusionCraft {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) event.accept(ModItems.SPLINT);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
