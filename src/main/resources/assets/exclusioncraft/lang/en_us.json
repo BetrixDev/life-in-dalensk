@@ -5,5 +5,6 @@
   "block.exclusioncraft.med_case": "Med Case",
   "container.exclusioncraft.toolbox": "Toolbox",
   "container.exclusioncraft.med_case": "Med Case",
-  "currency.exclusioncraft.roubles": "Roubles"
+  "currency.exclusioncraft.roubles": "Roubles",
+  "entity.exclusioncraft.trader_npc": "Trader"
 }

@@ -11,5 +11,6 @@ public class ModCommands {
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         CurrencyCommand.register(event.getDispatcher());
+        SummonTraderCommand.register(event.getDispatcher());
     }
 }

@@ -3,12 +3,16 @@ package dev.betrix.exclusioncraft.client;
 import dev.betrix.exclusioncraft.ExclusionCraft;
 import dev.betrix.exclusioncraft.client.gui.SearchableContainerScreen;
 import dev.betrix.exclusioncraft.client.gui.SurvivalInventoryScreen;
+import dev.betrix.exclusioncraft.client.gui.TraderScreen;
+import dev.betrix.exclusioncraft.client.renderer.TraderNPCRenderer;
+import dev.betrix.exclusioncraft.registry.ModEntityTypes;
 import dev.betrix.exclusioncraft.registry.ModMenuTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,7 +26,13 @@ public class ClientEvents {
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
                 MenuScreens.register(ModMenuTypes.SEARCHABLE_CONTAINER.get(), SearchableContainerScreen::new);
+                MenuScreens.register(ModMenuTypes.TRADER_MENU.get(), TraderScreen::new);
             });
+        }
+
+        @SubscribeEvent
+        public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntityTypes.TRADER_NPC.get(), TraderNPCRenderer::new);
         }
     }
 

@@ -3,6 +3,9 @@ package dev.betrix.exclusioncraft.network;
 import dev.betrix.exclusioncraft.ExclusionCraft;
 import dev.betrix.exclusioncraft.network.packets.CurrencyChangePacket;
 import dev.betrix.exclusioncraft.network.packets.SyncCurrencyPacket;
+import dev.betrix.exclusioncraft.network.packets.SyncTraderStockPacket;
+import dev.betrix.exclusioncraft.network.packets.TraderBuyPacket;
+import dev.betrix.exclusioncraft.network.packets.TraderSellPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -37,6 +40,24 @@ public class ModNetworking {
                 .encoder(CurrencyChangePacket::encode)
                 .decoder(CurrencyChangePacket::decode)
                 .consumerMainThread(CurrencyChangePacket::handle)
+                .add();
+
+        CHANNEL.messageBuilder(SyncTraderStockPacket.class, nextId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(SyncTraderStockPacket::encode)
+                .decoder(SyncTraderStockPacket::decode)
+                .consumerMainThread(SyncTraderStockPacket::handle)
+                .add();
+
+        CHANNEL.messageBuilder(TraderBuyPacket.class, nextId(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(TraderBuyPacket::encode)
+                .decoder(TraderBuyPacket::decode)
+                .consumerMainThread(TraderBuyPacket::handle)
+                .add();
+
+        CHANNEL.messageBuilder(TraderSellPacket.class, nextId(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(TraderSellPacket::encode)
+                .decoder(TraderSellPacket::decode)
+                .consumerMainThread(TraderSellPacket::handle)
                 .add();
     }
 
