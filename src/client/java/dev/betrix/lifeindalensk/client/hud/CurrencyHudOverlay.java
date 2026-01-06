@@ -42,7 +42,7 @@ public class CurrencyHudOverlay implements HudRenderCallback {
 
         long roubles = ClientCurrencyData.getRoubles();
         String formattedAmount = NUMBER_FORMAT.format(roubles);
-        String displayText = "R " + formattedAmount;
+        String displayText = "₽ " + formattedAmount;
 
         int textWidth = font.getWidth(displayText);
         int padding = 6;
@@ -70,7 +70,7 @@ public class CurrencyHudOverlay implements HudRenderCallback {
             float scale = floating.getScale();
 
             String prefix = floating.isAddition() ? "+" : "-";
-            String text = prefix + "R" + NUMBER_FORMAT.format(floating.getAmount());
+            String text = prefix + "₽" + NUMBER_FORMAT.format(floating.getAmount());
 
             int color = floating.isAddition() ? GREEN_COLOR : RED_COLOR;
             int alphaInt = (int) (alpha * 255);

@@ -58,7 +58,7 @@ public class TraderScreen extends HandledScreen<TraderScreenHandler> {
         // Set background to full screen so clicks aren't considered "outside"
         this.backgroundWidth = this.width;
         this.backgroundHeight = this.height;
-        
+
         super.init();
 
         // x and y are set by super.init() - we want them at 0,0 for full-screen layout
@@ -297,7 +297,8 @@ public class TraderScreen extends HandledScreen<TraderScreenHandler> {
             renderBuyCell(context, cellX, cellY, offers.get(i), i, mouseX, mouseY);
         }
 
-        int purchaseBarY = gridStartY + ((offers.size() + BUY_GRID_COLS - 1) / BUY_GRID_COLS) * (BUY_CELL_SIZE + 2) + 10;
+        int purchaseBarY = gridStartY + ((offers.size() + BUY_GRID_COLS - 1) / BUY_GRID_COLS) * (BUY_CELL_SIZE + 2)
+                + 10;
         renderPurchaseBar(context, trader, purchaseBarY, mouseX, mouseY);
 
         // Sell section
@@ -317,7 +318,7 @@ public class TraderScreen extends HandledScreen<TraderScreenHandler> {
         long sellValue = handler.calculateSellValue();
         int sellInfoY = sellStartY + 3 * SLOT_SIZE + 8;
 
-        context.drawText(this.textRenderer, "Value: R" + sellValue, rightColumnX + 8, sellInfoY, 0xAAAAAA, false);
+        context.drawText(this.textRenderer, "Value: ₽" + sellValue, rightColumnX + 8, sellInfoY, 0xAAAAAA, false);
 
         int sellButtonX = rightColumnX + columnWidth - 60;
         int sellButtonY = sellInfoY - 2;
@@ -367,7 +368,7 @@ public class TraderScreen extends HandledScreen<TraderScreenHandler> {
         int stockWidth = this.textRenderer.getWidth(stockText);
         context.drawText(this.textRenderer, stockText, x + BUY_CELL_SIZE - stockWidth - 2, y + 2, stockColor, false);
 
-        String priceText = "R" + offer.getPrice();
+        String priceText = "₽" + offer.getPrice();
         int priceWidth = this.textRenderer.getWidth(priceText);
         int priceColor = outOfStock ? 0x666666 : 0xFFAA00;
         context.drawText(this.textRenderer, priceText, x + (BUY_CELL_SIZE - priceWidth) / 2, y + BUY_CELL_SIZE - 10,
@@ -422,7 +423,7 @@ public class TraderScreen extends HandledScreen<TraderScreenHandler> {
                 boolean hasStock = stock < 0 || buyQuantity <= stock;
                 boolean canBuy = canAfford && hasStock;
 
-                String costText = "Total: R" + totalCost;
+                String costText = "Total: ₽" + totalCost;
                 context.drawText(this.textRenderer, costText, qtyX + 50, qtyY + 2, canBuy ? 0x55FF55 : 0xFF5555, false);
 
                 int buyBtnX = barX + barWidth - 40;

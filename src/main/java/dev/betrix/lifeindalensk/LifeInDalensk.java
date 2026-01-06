@@ -13,7 +13,6 @@ import dev.betrix.lifeindalensk.registry.ModScreenHandlers;
 import dev.betrix.lifeindalensk.trader.TraderRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.ResourceType;
 import org.slf4j.Logger;
@@ -53,11 +52,6 @@ public class LifeInDalensk implements ModInitializer {
         
         // Register server events
         ServerEvents.register();
-        
-        // Initialize default traders on server start
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            TraderRegistry.getInstance().registerDefaultTraders();
-        });
         
         LOGGER.info("Life in Dalensk initialized");
     }
