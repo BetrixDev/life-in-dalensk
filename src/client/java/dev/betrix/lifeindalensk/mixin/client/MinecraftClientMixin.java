@@ -8,12 +8,10 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * Mixin to replace the vanilla survival inventory screen with our custom one.
- * Intercepts setScreen to swap InventoryScreen for SurvivalInventoryScreen.
- */
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
 
@@ -30,5 +28,10 @@ public class MinecraftClientMixin {
             );
         }
         return screen;
+    }
+
+    @Inject(method = "getWindowTitle", at = @At("HEAD"), cancellable = true)
+    private void customTitle(CallbackInfoReturnable<String> cir) {
+        cir.setReturnValue("Life in Dalensk");
     }
 }
