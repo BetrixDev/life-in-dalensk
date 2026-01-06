@@ -1,0 +1,43 @@
+{
+  "id": "pharmacist",
+  "name": "Pharmacist",
+  "skin": "lifeindalensk:textures/entity/traders/pharmacist.png",
+  "restock_time": 1800,
+  "sells": [
+    {
+      "item": "minecraft:golden_apple",
+      "price": 5000,
+      "max_stock": 1
+    },
+    {
+      "item": "minecraft:potion",
+      "price": 1000,
+      "max_stock": 10
+    },
+    {
+      "item": "lifeindalensk:splint",
+      "price": 500,
+      "max_stock": 2
+    },
+    {
+      "item": "minecraft:bread",
+      "price": 100,
+      "max_stock": 20
+    },
+    {
+      "item": "minecraft:cooked_beef",
+      "price": 150,
+      "max_stock": 16
+    }
+  ],
+  "buys": [
+    {
+      "tag": "c:animal_foods",
+      "price": 10
+    },
+    {
+      "item": "lifeindalensk:splint",
+      "price": 250
+    }
+  ]
+}

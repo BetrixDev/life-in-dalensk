@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "lifeindalensk",
+  "version": "${version}",
+  "name": "Life in Dalensk",
+  "description": "A survival looter-shooter style mod with traders, currency, and injury system.",
+  "authors": ["Betrix"],
+  "contact": {},
+  "license": "Apache-2.0",
+  "icon": "assets/lifeindalensk/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "dev.betrix.lifeindalensk.client.LifeInDalenskDataGenerator"
+    ],
+    "client": [
+      "dev.betrix.lifeindalensk.client.LifeInDalenskClient"
+    ],
+    "main": [
+      "dev.betrix.lifeindalensk.LifeInDalensk"
+    ],
+    "cardinal-components": [
+      "dev.betrix.lifeindalensk.currency.ModComponents"
+    ]
+  },
+  "mixins": [
+    "lifeindalensk.mixins.json",
+    {
+      "config": "lifeindalensk.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "accessWidener": "lifeindalensk.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "cardinal-components-base": ">=6.0.0",
+    "cardinal-components-entity": ">=6.0.0"
+  },
+  "custom": {
+    "cardinal-components": [
+      "lifeindalensk:currency",
+      "lifeindalensk:trader_stock"
+    ]
+  }
+}

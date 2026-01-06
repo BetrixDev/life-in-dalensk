@@ -1,0 +1,10 @@
+{
+  "item.lifeindalensk.splint": "Splint",
+  "effect.lifeindalensk.broken_leg": "Broken Leg",
+  "block.lifeindalensk.toolbox": "Toolbox",
+  "block.lifeindalensk.med_case": "Med Case",
+  "container.lifeindalensk.toolbox": "Toolbox",
+  "container.lifeindalensk.med_case": "Med Case",
+  "currency.lifeindalensk.roubles": "Roubles",
+  "entity.lifeindalensk.trader_npc": "Trader"
+}
