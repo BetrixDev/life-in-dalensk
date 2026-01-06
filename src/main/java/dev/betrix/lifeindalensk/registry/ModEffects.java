@@ -1,6 +1,7 @@
 package dev.betrix.lifeindalensk.registry;
 
 import dev.betrix.lifeindalensk.LifeInDalensk;
+import dev.betrix.lifeindalensk.effect.PainkillerEffect;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
@@ -12,14 +13,23 @@ import net.minecraft.util.Identifier;
 
 public class ModEffects {
 
+    /**
+     * Identifier for the broken leg slowdown attribute modifier.
+     * Used by the mixin to identify and conditionally remove this modifier.
+     */
+    public static final Identifier BROKEN_LEG_SLOWDOWN_ID = Identifier.of(LifeInDalensk.MOD_ID, "broken_leg_slowdown");
+
     public static final RegistryEntry<StatusEffect> BROKEN_LEG = register("broken_leg", 
             createBrokenLegEffect());
+
+    public static final RegistryEntry<StatusEffect> PAINKILLER = register("painkiller",
+            new PainkillerEffect());
 
     private static StatusEffect createBrokenLegEffect() {
         return new StatusEffect(StatusEffectCategory.HARMFUL, 0x8B4513) {
         }.addAttributeModifier(
                 EntityAttributes.GENERIC_MOVEMENT_SPEED,
-                Identifier.of(LifeInDalensk.MOD_ID, "broken_leg_slowdown"),
+                BROKEN_LEG_SLOWDOWN_ID,
                 -0.5,
                 EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
     }

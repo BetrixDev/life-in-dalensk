@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -31,7 +32,7 @@ public class PlayerEvents {
             if (!(entity instanceof PlayerEntity player))
                 return;
 
-            if (source.isOf(net.minecraft.entity.damage.DamageTypes.FALL)) {
+            if (source.isOf(DamageTypes.FALL)) {
                 float distance = lastFallDistance.getOrDefault(player.getUuid(), 0f);
                 lastFallDistance.remove(player.getUuid());
 
@@ -61,7 +62,7 @@ public class PlayerEvents {
 
         // Track fall distance
         ServerLivingEntityEvents.ALLOW_DAMAGE.register((entity, source, amount) -> {
-            if (entity instanceof PlayerEntity player && source.isOf(net.minecraft.entity.damage.DamageTypes.FALL)) {
+            if (entity instanceof PlayerEntity player && source.isOf(DamageTypes.FALL)) {
                 lastFallDistance.put(player.getUuid(), player.fallDistance);
             }
             return true;
