@@ -4,6 +4,7 @@
   "package": "dev.betrix.lifeindalensk.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "HungerManagerMixin",
     "LivingEntityMixin",
     "PlayerRespawnMixin"
   ],
