@@ -2,6 +2,7 @@ package dev.betrix.lifeindalensk.registry;
 
 import dev.betrix.lifeindalensk.LifeInDalensk;
 import dev.betrix.lifeindalensk.item.AnalginPainkillersItem;
+import dev.betrix.lifeindalensk.item.IbuprofenItem;
 import dev.betrix.lifeindalensk.item.SplintItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -17,6 +18,9 @@ public class ModItems {
     public static final Item ANALGIN_PAINKILLERS = register("analgin_painkillers",
             new AnalginPainkillersItem(new Item.Settings().maxCount(4)));
 
+    public static final Item IBUPROFEN = register("ibuprofen",
+            new IbuprofenItem(new Item.Settings().maxCount(8)));
+
     private static Item register(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(LifeInDalensk.MOD_ID, name), item);
     }
@@ -28,6 +32,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
             content.add(SPLINT);
             content.add(ANALGIN_PAINKILLERS);
+            content.add(IBUPROFEN);
         });
     }
 }
