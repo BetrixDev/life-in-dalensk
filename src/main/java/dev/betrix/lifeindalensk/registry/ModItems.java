@@ -2,6 +2,7 @@ package dev.betrix.lifeindalensk.registry;
 
 import dev.betrix.lifeindalensk.LifeInDalensk;
 import dev.betrix.lifeindalensk.item.AnalginPainkillersItem;
+import dev.betrix.lifeindalensk.item.BandageItem;
 import dev.betrix.lifeindalensk.item.IbuprofenItem;
 import dev.betrix.lifeindalensk.item.SplintItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -21,6 +22,9 @@ public class ModItems {
     public static final Item IBUPROFEN = register("ibuprofen",
             new IbuprofenItem(new Item.Settings().maxCount(8)));
 
+    public static final Item BANDAGE = register("bandage",
+            new BandageItem(new Item.Settings().maxCount(4)));
+
     private static Item register(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(LifeInDalensk.MOD_ID, name), item);
     }
@@ -33,6 +37,7 @@ public class ModItems {
             content.add(SPLINT);
             content.add(ANALGIN_PAINKILLERS);
             content.add(IBUPROFEN);
+            content.add(BANDAGE);
         });
     }
 }

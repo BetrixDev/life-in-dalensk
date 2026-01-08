@@ -1,6 +1,7 @@
 package dev.betrix.lifeindalensk.registry;
 
 import dev.betrix.lifeindalensk.LifeInDalensk;
+import dev.betrix.lifeindalensk.effect.BleedingEffect;
 import dev.betrix.lifeindalensk.effect.PainkillerEffect;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -24,6 +25,9 @@ public class ModEffects {
 
     public static final RegistryEntry<StatusEffect> PAINKILLER = register("painkiller",
             new PainkillerEffect());
+
+    public static final RegistryEntry<StatusEffect> BLEEDING = register("bleeding",
+            new BleedingEffect());
 
     private static StatusEffect createBrokenLegEffect() {
         return new StatusEffect(StatusEffectCategory.HARMFUL, 0x8B4513) {

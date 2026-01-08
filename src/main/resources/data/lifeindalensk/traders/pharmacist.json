@@ -20,6 +20,11 @@
       "max_stock": 2
     },
     {
+      "item": "lifeindalensk:bandage",
+      "price": 100,
+      "max_stock": 15
+    },
+    {
       "item": "minecraft:bread",
       "price": 100,
       "max_stock": 20
