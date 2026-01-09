@@ -1,6 +1,13 @@
 {
   "item.lifeindalensk.splint": "Splint",
   "item.lifeindalensk.analgin_painkillers": "Analgin Painkillers",
+  "item.lifeindalensk.light_bulb": "Light Bulb",
+  "item.lifeindalensk.nuts": "Nuts",
+  "item.lifeindalensk.bolts": "Bolts",
+  "item.lifeindalensk.screws": "Screws",
+  "item.lifeindalensk.pipe": "Pipe",
+  "item.lifeindalensk.duct_tape": "Duct Tape",
+  "item.lifeindalensk.painters_tape": "Painter's Tape",
   "effect.lifeindalensk.broken_leg": "Broken Leg",
   "effect.lifeindalensk.painkiller": "Painkiller",
   "block.lifeindalensk.toolbox": "Toolbox",
@@ -10,3 +17,4 @@
   "currency.lifeindalensk.roubles": "Roubles",
   "entity.lifeindalensk.trader_npc": "Trader"
 }
+

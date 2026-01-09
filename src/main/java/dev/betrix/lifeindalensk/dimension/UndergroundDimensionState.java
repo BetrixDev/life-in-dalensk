@@ -4,11 +4,16 @@ import dev.betrix.lifeindalensk.LifeInDalensk;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.PersistentState;
 
 public class UndergroundDimensionState extends PersistentState {
-    public static final Identifier DATA_KEY = Identifier.of(LifeInDalensk.MOD_ID, "underground_dimension_state");
+    public static final String DATA_KEY = LifeInDalensk.MOD_ID + "_underground_dimension_state";
+
+    private static final Type<UndergroundDimensionState> TYPE = new Type<>(
+            UndergroundDimensionState::new,
+            UndergroundDimensionState::fromNbt,
+            null
+    );
 
     private boolean initialized = false;
 
@@ -16,9 +21,7 @@ public class UndergroundDimensionState extends PersistentState {
     }
 
     public static UndergroundDimensionState getOrCreate(ServerWorld world) {
-        return world.getPersistentStateManager().getOrCreate(
-                new Factory<>(UndergroundDimensionState::new, UndergroundDimensionState::fromNbt, null),
-                DATA_KEY);
+        return world.getPersistentStateManager().getOrCreate(TYPE, DATA_KEY);
     }
 
     public boolean isInitialized() {

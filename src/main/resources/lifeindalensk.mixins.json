@@ -6,8 +6,7 @@
   "mixins": [
     "HungerManagerMixin",
     "LivingEntityMixin",
-    "PlayerRespawnMixin",
-    "ZombieMixin"
+    "PlayerRespawnMixin"
   ],
   "injectors": {
     "defaultRequire": 1

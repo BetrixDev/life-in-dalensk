@@ -25,6 +25,14 @@ public class ModItems {
     public static final Item BANDAGE = register("bandage",
             new BandageItem(new Item.Settings().maxCount(4)));
 
+    public static final Item LIGHT_BULB = register("light_bulb", new Item(new Item.Settings()));
+    public static final Item NUTS = register("nuts", new Item(new Item.Settings()));
+    public static final Item BOLTS = register("bolts", new Item(new Item.Settings()));
+    public static final Item SCREWS = register("screws", new Item(new Item.Settings()));
+    public static final Item PIPE = register("pipe", new Item(new Item.Settings()));
+    public static final Item DUCT_TAPE = register("duct_tape", new Item(new Item.Settings()));
+    public static final Item PAINTERS_TAPE = register("painters_tape", new Item(new Item.Settings()));
+
     private static Item register(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(LifeInDalensk.MOD_ID, name), item);
     }
@@ -38,6 +46,13 @@ public class ModItems {
             content.add(ANALGIN_PAINKILLERS);
             content.add(IBUPROFEN);
             content.add(BANDAGE);
+            content.add(LIGHT_BULB);
+            content.add(NUTS);
+            content.add(BOLTS);
+            content.add(SCREWS);
+            content.add(PIPE);
+            content.add(DUCT_TAPE);
+            content.add(PAINTERS_TAPE);
         });
     }
 }
