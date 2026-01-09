@@ -2,6 +2,7 @@ package dev.betrix.lifeindalensk.registry;
 
 import dev.betrix.lifeindalensk.LifeInDalensk;
 import dev.betrix.lifeindalensk.block.MedCaseBlock;
+import dev.betrix.lifeindalensk.block.PortalToDalenskBlock;
 import dev.betrix.lifeindalensk.block.ToolboxBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
@@ -16,6 +17,8 @@ public class ModBlocks {
 
     public static final Block TOOLBOX = register("toolbox", new ToolboxBlock(ToolboxBlock.createSettings()));
     public static final Block MED_CASE = register("med_case", new MedCaseBlock(MedCaseBlock.createSettings()));
+    public static final Block PORTAL_TO_DALENSK = register("portal_to_dalensk",
+            new PortalToDalenskBlock(PortalToDalenskBlock.createSettings()));
 
     private static Block register(String name, Block block) {
         Identifier id = Identifier.of(LifeInDalensk.MOD_ID, name);
@@ -31,6 +34,7 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.add(TOOLBOX);
             content.add(MED_CASE);
+            content.add(PORTAL_TO_DALENSK);
         });
     }
 }
