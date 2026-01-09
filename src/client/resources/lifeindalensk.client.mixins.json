@@ -4,7 +4,8 @@
   "package": "dev.betrix.lifeindalensk.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
