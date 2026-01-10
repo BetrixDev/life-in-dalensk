@@ -8,5 +8,6 @@ public class ModCommands {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         CurrencyCommand.register(dispatcher);
         SummonTraderCommand.register(dispatcher);
+        ExtractionTestCommand.register(dispatcher);
     }
 }

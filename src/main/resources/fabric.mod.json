@@ -41,7 +41,8 @@
   "custom": {
     "cardinal-components": [
       "lifeindalensk:currency",
-      "lifeindalensk:trader_stock"
+      "lifeindalensk:trader_stock",
+      "lifeindalensk:extraction"
     ]
   }
 }

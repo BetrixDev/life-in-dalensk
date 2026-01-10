@@ -1,6 +1,7 @@
 package dev.betrix.lifeindalensk.client;
 
 import dev.betrix.lifeindalensk.client.hud.CurrencyHudOverlay;
+import dev.betrix.lifeindalensk.client.hud.ExtractionHudOverlay;
 import dev.betrix.lifeindalensk.client.render.TraderNPCRenderer;
 import dev.betrix.lifeindalensk.client.screen.SearchableContainerScreen;
 import dev.betrix.lifeindalensk.client.screen.TraderScreen;
@@ -27,9 +28,12 @@ public class LifeInDalenskClient implements ClientModInitializer {
         // Register entity renderers
         EntityRendererRegistry.register(ModEntityTypes.TRADER_NPC, TraderNPCRenderer::new);
 
-        // Register HUD overlay
-        CurrencyHudOverlay hudOverlay = new CurrencyHudOverlay();
-        HudRenderCallback.EVENT.register(hudOverlay);
+        // Register HUD overlays
+        CurrencyHudOverlay currencyHud = new CurrencyHudOverlay();
+        HudRenderCallback.EVENT.register(currencyHud);
+        
+        ExtractionHudOverlay extractionHud = new ExtractionHudOverlay();
+        HudRenderCallback.EVENT.register(extractionHud);
 
         // Register client tick for HUD animations
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

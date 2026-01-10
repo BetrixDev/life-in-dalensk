@@ -1,5 +1,6 @@
 package dev.betrix.lifeindalensk.event;
 
+import dev.betrix.lifeindalensk.extraction.ExtractionManager;
 import dev.betrix.lifeindalensk.registry.ModEffects;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
@@ -71,6 +72,11 @@ public class PlayerEvents {
 
     public static void tickPlayer(PlayerEntity player) {
         UUID playerId = player.getUuid();
+
+        // Tick extraction logic for server players
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            ExtractionManager.tickPlayerExtraction(serverPlayer);
+        }
 
         if (player.hasStatusEffect(ModEffects.BROKEN_LEG) && player.isSprinting()) {
             int timer = sprintDamageTimers.getOrDefault(playerId, 0);

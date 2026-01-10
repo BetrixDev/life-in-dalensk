@@ -1,11 +1,12 @@
 package dev.betrix.lifeindalensk.mixin.client;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +22,7 @@ public class WorldRendererMixin {
     @Inject(method = "drawBlockOutline", at = @At("HEAD"), cancellable = true)
     private void disableBlockOutline(MatrixStack matrices, VertexConsumer vertexConsumer, Entity entity,
                                      double cameraX, double cameraY, double cameraZ,
-                                     BlockHitResult blockHitResult, CallbackInfo ci) {
+                                     BlockPos blockPos, BlockState blockState, CallbackInfo ci) {
         if (entity instanceof ClientPlayerEntity player && !player.isCreative()) {
             ci.cancel();
         }
